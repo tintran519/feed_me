@@ -1,9 +1,27 @@
 Rails.application.routes.draw do
 
+  # get 'bags/index'
+
+  # get 'bags/show'
+
+  # get 'bags/new'
+
+  # get 'bags/create'
+
+  # get 'bags/edit'
+
+  # get 'bags/update'
+
+  # get 'bags/destroy'
+
   root 'welcome#index'
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create] do
+    resources :bags, except: :index
+  end
 
+  get 'user' => 'users#show', as: :user
+  get 'bags' => 'bags#index', as: :bags
   #resources :sessions, only: [:new, :create, :destroy]
 
   get 'login' => 'sessions#new'
