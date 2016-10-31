@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
 
-  # get 'bags/index'
+  # get 'foods/index'
 
-  # get 'bags/show'
+  # get 'foods/create'
 
-  # get 'bags/new'
+  # get 'foods/new'
 
-  # get 'bags/create'
+  # get 'foods/edit'
 
-  # get 'bags/edit'
+  # get 'foods/show'
 
-  # get 'bags/update'
+  # get 'foods/update'
 
-  # get 'bags/destroy'
+  # get 'foods/destroy'
 
   root 'welcome#index'
 
@@ -25,8 +25,11 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy'
 
   resources :users do #only: [:new, :create] do
-    resources :bags
+    resources :bags do
+      resources :foods
+    end
   end
+end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -81,4 +84,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end

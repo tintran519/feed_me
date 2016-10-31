@@ -30,9 +30,10 @@ def index
   end
 
   def update
+    @user = User.find(params[:user_id])
     @bag = Bag.find(params[:id])
     if @bag.update_attributes(bag_params)
-      redirect_to bag_path
+      redirect_to user_bag_path(@user, @bag)
     else
       render 'edit'
     end
@@ -41,7 +42,7 @@ def index
   def destroy
     @bag = Bag.find(params[:id])
     @bag.destroy
-    redirect_to bag_path
+    redirect_to user_bags_path
   end
 
   private

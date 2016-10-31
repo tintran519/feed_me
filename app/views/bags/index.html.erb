@@ -1,7 +1,7 @@
 <h1>MY BAGS</h1>
 <div>
  <% @bags.each do |bag| %>
-        <%= link_to "#{bag.name}", user_bags_path(@user, bag)%>
+        <%= link_to "#{bag.name}", user_bag_path(@user, bag)%>
         <% end %>
 </div>
 

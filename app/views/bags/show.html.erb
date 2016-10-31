@@ -1,2 +1,9 @@
-<h1>Bags#show</h1>
-<p>Find me in app/views/bags/show.html.erb</p>
+<h1><%= @bag.name %></h1>
+<br>
+<%= link_to "Look inside Bag", user_bag_foods(@user) %>
+<br>
+<%= link_to "Edit Bag information", edit_user_bag_path(@user, @bag) %>
+<br>
+<%= link_to "Delete Bag", user_bag_path(@user, @bag), method: :delete, data: { confirm: "Are you sure you want to delete #{@bag.name}?"} %>
+<br>
+<%= link_to "Back to all Bags", user_bags_path(@user) %>
