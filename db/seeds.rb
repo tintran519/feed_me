@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Food.delete_all
+
+10.times do
+  Food.create(ingredient: Faker::Pokemon.name)
+end

@@ -1,18 +1,6 @@
 Rails.application.routes.draw do
 
-  # get 'foods/index'
-
-  # get 'foods/create'
-
-  # get 'foods/new'
-
-  # get 'foods/edit'
-
-  # get 'foods/show'
-
-  # get 'foods/update'
-
-  # get 'foods/destroy'
+  get 'foods/index'
 
   root 'welcome#index'
 
@@ -26,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :users do #only: [:new, :create] do
     resources :bags do
-      resources :foods
+      resources :orders
     end
   end
 end

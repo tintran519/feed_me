@@ -1,0 +1,13 @@
+<%= form_for @order, url: new_user_bag_order_path(@user, @bag), method: :post do |f| %>
+
+  <div>
+    <%= f.label :uom %>
+    <%= f.text_field :uom %>
+  </div>
+
+<%= select_tag :foods, options_for_select(Food.pluck(:ingredient)) %>
+
+  <%= f.submit "Add to list!" %>
+<% end %>
+
+<%= link_to "Back to All Bags", user_bags_path %>

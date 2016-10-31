@@ -1,6 +1,6 @@
 <h1><%= @bag.name %></h1>
 <br>
-<%= link_to "Look inside Bag", user_bag_foods(@user) %>
+<%= link_to "Look inside Bag", user_bag_orders_path(@user, @bag) %>
 <br>
 <%= link_to "Edit Bag information", edit_user_bag_path(@user, @bag) %>
 <br>

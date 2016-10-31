@@ -1,6 +1,5 @@
 class BagsController < ApplicationController
 def index
-    # @bags = Bag.all
     @user = User.find(params[:user_id])
     @bags = @user.bags
   end
