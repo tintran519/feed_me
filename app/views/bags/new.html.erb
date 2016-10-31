@@ -1,2 +1,22 @@
-<h1>Bags#new</h1>
-<p>Find me in app/views/bags/new.html.erb</p>
+<%= form_for @bag, url: user_bags_path(@user), method: :post do |f| %>
+
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+
+  <div>
+    <%= f.label :estimated_price %>
+    <%= f.number_field :estimated_price %>
+  </div>
+
+  <div>
+    <%= f.label :comments %>
+    <%= f.text_area :comments %>
+  </div>
+
+  <%= f.submit "Create the bag!" %>
+<% end %>
+
+<%= link_to "Back to All Bags", user_bags_path %>

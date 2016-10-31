@@ -1,6 +1,8 @@
 class BagsController < ApplicationController
 def index
-    @bags = Bag.all
+    # @bags = Bag.all
+    @user = User.find(params[:user_id])
+    @bags = @user.bags
   end
 
   def show
@@ -10,14 +12,14 @@ def index
 
   def new
     @user = User.find(params[:user_id])
-    @bag = @user.bags.new(bag_params)
+    @bag = @user.bags.new
   end
 
   def create
     @user = User.find(params[:user_id])
-    @bag = @user.bags.new
+    @bag = @user.bags.new(bag_params)
     if @bag.save
-      redirect_to bag_path
+      redirect_to user_bags_path(@user)
     else
       render 'new'
     end

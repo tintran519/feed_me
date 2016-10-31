@@ -20,9 +20,12 @@ ActiveRecord::Schema.define(version: 20161030084906) do
     t.string   "name"
     t.string   "comments"
     t.float    "estimated_price"
+    t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
+
+  add_index "bags", ["user_id"], name: "index_bags_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -33,4 +36,5 @@ ActiveRecord::Schema.define(version: 20161030084906) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "bags", "users"
 end

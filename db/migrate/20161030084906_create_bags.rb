@@ -4,6 +4,7 @@ class CreateBags < ActiveRecord::Migration
       t.string :name
       t.string :comments
       t.float :estimated_price
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end

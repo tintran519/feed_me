@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @user = User.find(params[:id])
-    # @bags = @user.bags
+    @user = User.find(params[:id])
+    @bags = @user.bags
   end
 
   def create
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "You have successfully signed up!"
-      redirect_to user_path
+      redirect_to user_path(@user)
     else
       render 'new'
   end

@@ -1,2 +1,11 @@
-<h1>Bags#index</h1>
-<p>Find me in app/views/bags/index.html.erb</p>
+<h1>MY BAGS</h1>
+<div>
+ <% @bags.each do |bag| %>
+        <%= link_to "#{bag.name}", user_bags_path(@user, bag)%>
+        <% end %>
+</div>
+
+<%= link_to "Create a New Bag", new_user_bag_path(@user) %>
+<br>
+<%= link_to "Back", user_path(@user) %>
+

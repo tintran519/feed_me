@@ -16,17 +16,17 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  resources :users, only: [:new, :create] do
-    resources :bags, except: :index
-  end
-
-  get 'user' => 'users#show', as: :user
-  get 'bags' => 'bags#index', as: :bags
+  #get 'user' => 'users#show', as: :user
+  #get 'bags' => 'bags#index', as: :bags
   #resources :sessions, only: [:new, :create, :destroy]
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create', as: 'sessions'
   get 'logout' => 'sessions#destroy'
+
+  resources :users do #only: [:new, :create] do
+    resources :bags
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
