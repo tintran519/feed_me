@@ -51,4 +51,4 @@ group :development do
 end
 
 #Faker gem
-gem 'faker', git: 'git@github.com:stympy/faker.git'
+gem 'faker', github: 'stympy/faker'

@@ -31,8 +31,8 @@ User.all.each do |user|
 end
 
 Bag.all.each do |bag|
-  2.times do
-    random = Faker::Number.between(800,900)
+  Faker::Number.between(1,11).times do
+    random = Faker::Number.between(1100,1200)
     bag.orders.create(
       food_id:random, quantity:Faker::Number.between(1,10))
   end
