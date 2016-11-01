@@ -7,7 +7,11 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to user_path(user)
+        if user.is_hunter
+          redirect_to bounties_path(user)
+        else
+          redirect_to user_path(user)
+        end
     else
       flash.now.alert = 'Invalid login credentials - try again!'
       render 'new'

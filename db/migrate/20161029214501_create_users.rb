@@ -4,7 +4,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.string :password_digest
-      t.string :location
+      t.integer :zipcode
+      t.boolean :is_hunter, default: false
 
       t.timestamps null: false
     end

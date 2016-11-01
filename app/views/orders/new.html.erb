@@ -1,11 +1,18 @@
-<%= form_for @order, url: new_user_bag_order_path(@user, @bag), method: :post do |f| %>
+<%= form_for @order, url: user_bag_orders_path(@user, @bag), method: :post do |f| %>
+
+<%= f.collection_select :food_id, Food.order(:ingredient),:id,:ingredient, include_blank: true %>
+
+<%#= select_tag :foods, options_for_select(Food.pluck(:ingredient)) %>
 
   <div>
-    <%= f.label :uom %>
+    <%= f.label :UOM %>
     <%= f.text_field :uom %>
   </div>
 
-<%= select_tag :foods, options_for_select(Food.pluck(:ingredient)) %>
+  <div>
+    <%= f.label :Quantity %>
+    <%= f.text_field :quantity %>
+  </div>
 
   <%= f.submit "Add to list!" %>
 <% end %>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'foods/index'
+  get 'users/:user_id/bounties/index' => 'bounties#index', as: :bounties
+
+  post 'bounties/update'
 
   root 'welcome#index'
 

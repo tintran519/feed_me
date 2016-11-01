@@ -10,7 +10,12 @@
 <body>
   <nav class="navbar navbar-default">
 <p id='brand' class="navbar-text navbar-left">
-  <%= link_to 'FEED ME', root_path %>
+  <% if current_user %>
+    <%= link_to 'FEED ME', user_path(current_user.id) %>
+  <% else %>
+    <%= link_to 'FEED ME', root_path %>
+    <% end %>
+
 </p>
 <p class="navbar-text navbar-right">
   <% if current_user %>

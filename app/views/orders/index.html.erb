@@ -1,2 +1,20 @@
 <h1><%= @bag.name %></h1>
+<% if current_user.id != @bag.user_id %>
+  <% @orders.each do |order| %>
+  <%= "#{order.food.ingredient}" %>
+  <br>
+  <% end %>
+
+<%= link_to 'Accept Mission!', bounties_update_path, method: :post %>
+  <% else %>
+<div>
+ <% @orders.each do |order| %>
+        <%= link_to "#{order.food.ingredient}", user_bag_order_path(@user, @bag, order)%>
+        <br>
+        <% end %>
+</div>
+<br>
 <%= link_to "Add Food", new_user_bag_order_path(@user, @bag) %>
+<br>
+<%= link_to "Back to All Bags", user_bags_path %>
+<% end %>

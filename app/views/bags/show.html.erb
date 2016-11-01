@@ -1,4 +1,17 @@
 <h1><%= @bag.name %></h1>
+
+<p> <%= @bag.comments %></p>
+<br>
+<p> Current Status:
+<% if @bag.bag_status.nil? %>
+  <%= 'Awaiting hunter' %>
+<% else %>
+  <%= @bag.bag_status %>
+<% end %>
+<br>
+<p> Assigned Hunter: <%= @bag.hunter_id %></p>
+</p>
+<p> Estimated Price: <%= @bag.estimated_price %></p>
 <br>
 <%= link_to "Look inside Bag", user_bag_orders_path(@user, @bag) %>
 <br>

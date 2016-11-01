@@ -49,6 +49,7 @@ def index
       params.require(:bag).permit(
         :name,
         :comments,
-        :estimated_price)
+        :estimated_price,
+        :hunter_id)
     end
 end

@@ -1,0 +1,11 @@
+<h1>Bounty Board</h1>
+
+<div>
+ <% @bags.each do |bag| %>
+ <%# if bag.hunter_name.nil? %>
+  <%= link_to "#{bag.name}", user_bag_orders_path(bag.user_id, bag.id) %>
+  <%#= bag.name %>
+  <br>
+  <% end %>
+  <%# end %>
+</div>

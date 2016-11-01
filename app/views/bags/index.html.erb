@@ -2,9 +2,10 @@
 <div>
  <% @bags.each do |bag| %>
         <%= link_to "#{bag.name}", user_bag_path(@user, bag)%>
+        <br>
         <% end %>
 </div>
-
+<br>
 <%= link_to "Create a New Bag", new_user_bag_path(@user) %>
 <br>
 <%= link_to "Back", user_path(@user) %>
