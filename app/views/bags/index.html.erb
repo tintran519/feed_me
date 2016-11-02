@@ -1,12 +1,12 @@
 <h1>MY BAGS</h1>
-<div>
+<div class='container' id="bagIndex">
+<ul class='bagList'>
  <% @bags.each do |bag| %>
-        <%= link_to "#{bag.name}", user_bag_path(@user, bag)%>
-        <br>
+        <li><%= link_to "#{bag.name}", user_bag_path(@user, bag)%></li>
         <% end %>
-</div>
+</ul>
 <br>
 <%= link_to "Create a New Bag", new_user_bag_path(@user) %>
 <br>
 <%= link_to "Back", user_path(@user) %>
-
+</div>

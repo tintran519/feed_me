@@ -18,6 +18,62 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// html {
+// background: url(http://www.ezyhealth.com/magazine/wp-content/uploads/2015/03/iStock_000046272610_Large.jpg) no-repeat center center fixed;
+// -webkit-background-size: cover;
+// -moz-background-size: cover;
+// -o-background-size: cover;
+// background-size: cover;
+// }
+*, a {
+  color: #ff9800;
+  font-family: 'Irish Grover', cursive;
+}
+
 #brand {
   font-family: 'Irish Grover', cursive;
+  background-color: #033c29;
+  margin: auto;
+}
+
+#box-wrapper {
+  background-image: url(http://www.ezyhealth.com/magazine/wp-content/uploads/2015/03/iStock_000046272610_Large.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 900px;
+  margin: auto;
+}
+
+#mainContent {
+  text-align: center;
+}
+
+#homeLink {
+  background-color: #033c29;
+}
+
+#login {
+  background-color: rgba(181, 84, 36, 0.69);
+}
+
+#bagShow {
+  background-color:rgba(228, 143, 56, 0.78);
+}
+
+#editProfile {
+  background-color: Lavenderblush;
+}
+
+#avatar {
+  background-color: Beige;
+}
+
+.bagList {
+  list-style-image: url("https://cdn0.iconfinder.com/data/icons/shopping-solid-2/48/99-48.png");
+}
+
+#bagIndex {
+  background-color: Lavenderblush;
 }

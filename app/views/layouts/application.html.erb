@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Irish+Grover" rel="stylesheet">
 </head>
 <body>
-      <div class="navbar navbar-default navbar-static top" id='brand'>
+      <div class="navbar navbar-default navbar-fixed-top" id='brand'>
           <div class="container">
             <div class="navbar-brand">
           <% if current_user %>
@@ -31,16 +31,20 @@
           <div class = "collapse navbar-collapse navHeaderCollapse">
           <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-            <li> <%= current_user.name %> | <%= link_to 'Log Out ', logout_path %></li>
+            <li> <%= current_user.name %> <%= link_to 'Log Out ', logout_path %></li>
         <% else %>
             <li><%= link_to 'Login', login_path %></li>
         <% end %>
           </ul>
             </div>
           </div>
-  </div>
+        </div>
+  <div class="jumbotron" id="box-wrapper">
+    <div class="container" id="mainContent">
 
 <%= yield %>
+      </div>
+    </div>
 
 </body>
 </html>
