@@ -32,7 +32,11 @@ def index
     @user = User.find(params[:user_id])
     @bag = Bag.find(params[:id])
     if @bag.update_attributes(bag_params)
-      redirect_to user_bag_path(@user, @bag)
+      if current_user.is_hunter
+        redirect_to bounties_path(@user)
+      else
+        redirect_to user_bag_path(@user, @bag)
+      end
     else
       render 'edit'
     end
@@ -43,6 +47,12 @@ def index
     @bag.destroy
     redirect_to user_bags_path
   end
+
+  # def hunt
+  # @bag = Bag.find(params[:id])
+  # @bag.update_attribute(:hunter_id, bag.hunter_id == @current_user.id)
+  # redirect_to bounties_path(@current_user)
+  # end
 
   private
     def bag_params

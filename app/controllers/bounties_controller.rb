@@ -1,6 +1,6 @@
 class BountiesController < ApplicationController
   def index
-    # @user = User.find(params[:userid])
+    @user = User.find(params[:user_id]).hunting
     @bags = Bag.all
     # @bag = Bag.find(params[:id])
   end

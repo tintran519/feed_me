@@ -9,3 +9,7 @@
   <% end %>
   <%# end %>
 </div>
+<br>
+<% @user.each do |hunt| %>
+  <%= "#{hunt.name}" %>
+<% end %>

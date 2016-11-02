@@ -5,7 +5,11 @@
   <br>
   <% end %>
 
-<%= link_to 'Accept Mission!', bounties_update_path, method: :post %>
+<%#= link_to "Accept Mission!", {:controller => "bags", :action => "hunt"}, :id => @current_user %>
+<%= form_tag "/users/#{@user.id}/bags/#{@bag.id}", method: :patch do %>
+  <%= hidden_field_tag 'bag[hunter_id]', current_user.id %>
+  <%= submit_tag 'Accept Mission!' %>
+<% end %>
   <% else %>
 <div>
  <% @orders.each do |order| %>
