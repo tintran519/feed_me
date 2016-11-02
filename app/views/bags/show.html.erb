@@ -2,15 +2,19 @@
 
 <p> <%= @bag.comments %></p>
 <br>
-<p> Current Status:
+<%= "Current status:#{@bag.bag_status}" %>
 <% if @bag.hunter_id.nil? %>
-  <%= 'Awaiting hunter...' %>
+  <%= @bag.bag_status = 'Awaiting hunter...' %>
+  <br>
+  <%= 'Assigned Hunter: ' %>
 <% else %>
-  <%= 'In pursuit!' %>
+  <% if @bag.bag_status != 'Completed!' %>
+  <%= @bag.bag_status = 'In pursuit!' %>
+  <% end %>
+  <br>
+  <%= "Assigned Hunter: #{@bag.hunter.name}" %>
 <% end %>
 <br>
-<p> Assigned Hunter: <%= @bag.hunter.name %></p>
-</p>
 <p> Estimated Price: <%= @bag.estimated_price %></p>
 <br>
 <%= link_to "Look inside Bag", user_bag_orders_path(@user, @bag) %>
@@ -18,5 +22,13 @@
 <%= link_to "Edit Bag information", edit_user_bag_path(@user, @bag) %>
 <br>
 <%= link_to "Delete Bag", user_bag_path(@user, @bag), method: :delete, data: { confirm: "Are you sure you want to delete #{@bag.name}?"} %>
+<br>
+    <% if @bag.bag_status == 'In pursuit!' %>
+      <%= form_tag "/users/#{@user.id}/bags/#{@bag.id}", method: :patch do %>
+        <%= hidden_field_tag 'bag[bag_status]', 'Completed!' %>
+        <%= submit_tag 'Mark as complete!' %>
+      <% end %>
+    <% end %>
+
 <br>
 <%= link_to "Back to all Bags", user_bags_path(@user) %>

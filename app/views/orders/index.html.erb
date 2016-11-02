@@ -5,20 +5,22 @@
   <br>
   <% end %>
 
-<%#= link_to "Accept Mission!", {:controller => "bags", :action => "hunt"}, :id => @current_user %>
-<%= form_tag "/users/#{@user.id}/bags/#{@bag.id}", method: :patch do %>
-  <%= hidden_field_tag 'bag[hunter_id]', current_user.id %>
-  <%= submit_tag 'Accept Mission!' %>
-<% end %>
-  <% else %>
-<div>
- <% @orders.each do |order| %>
+    <% if @bag.hunter_id == nil %>
+      <%= form_tag "/users/#{@user.id}/bags/#{@bag.id}", method: :patch do %>
+      <%= hidden_field_tag 'bag[hunter_id]', current_user.id %>
+      <%= submit_tag 'Accept Mission!' %>
+    <% end %>
+  <% end %>
+<% else %>
+
+  <div>
+    <% @orders.each do |order| %>
         <%= link_to "#{order.food.ingredient}", user_bag_order_path(@user, @bag, order)%>
         <br>
         <% end %>
 </div>
 <br>
-<%= link_to "Add Food", new_user_bag_order_path(@user, @bag) %>
+    <%= link_to "Add Food", new_user_bag_order_path(@user, @bag) %>
 <br>
-<%= link_to "Back to All Bags", user_bags_path %>
-<% end %>
+    <%= link_to "Back to All Bags", user_bags_path %>
+  <% end %>

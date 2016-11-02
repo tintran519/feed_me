@@ -2,14 +2,18 @@
 
 <div>
  <% @bags.each do |bag| %>
- <%# if bag.hunter_name.nil? %>
+ <% if bag.hunter_id.nil? %>
   <%= link_to "#{bag.name}", user_bag_orders_path(bag.user_id, bag.id) %>
   <%#= bag.name %>
   <br>
   <% end %>
+  <% end %>
   <%# end %>
 </div>
 <br>
+
+<h2>Bags in pursuit</h2>
 <% @user.each do |hunt| %>
-  <%= "#{hunt.name}" %>
+  <%= link_to "#{hunt.name}", user_bag_orders_path(hunt.user_id, hunt.id) %>
+  <br>
 <% end %>

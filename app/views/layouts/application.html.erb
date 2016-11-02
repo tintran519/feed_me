@@ -8,24 +8,38 @@
   <link href="https://fonts.googleapis.com/css?family=Irish+Grover" rel="stylesheet">
 </head>
 <body>
-  <nav class="navbar navbar-default">
-<p id='brand' class="navbar-text navbar-left">
-  <% if current_user %>
-    <%= link_to 'FEED ME', user_path(current_user.id) %>
-  <% else %>
-    <%= link_to 'FEED ME', root_path %>
-    <% end %>
+      <div class="navbar navbar-default navbar-static top" id='brand'>
+          <div class="container">
+            <div class="navbar-brand">
+          <% if current_user %>
+              <% if current_user.is_hunter %>
+                  <%= link_to 'FEED ME', bounties_path(current_user) %>
+              <% else %>
+                  <%= link_to 'FEED ME', user_path(current_user.id) %>
+              <% end %>
+          <% else %>
+                  <%= link_to 'FEED ME', root_path %>
+          <% end %>
+            </div>
 
-</p>
-<p class="navbar-text navbar-right">
-  <% if current_user %>
-       Welcome, <%= current_user.name %> | <%= link_to 'Log Out ', logout_path %>
-  <% else %>
-      <%= link_to 'Login', login_path %>
-      <% end %>
-</p>
+              <button class="navbar-toggle" data-toggle="collapse" data-target = ".navHeaderCollapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
 
-  </nav>
+          <div class = "collapse navbar-collapse navHeaderCollapse">
+          <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+            <li> <%= current_user.name %><%= link_to 'Log Out ', logout_path %></li>
+        <% else %>
+            <li><%= link_to 'Login', login_path %></li>
+        <% end %>
+          </ul>
+            </div>
+          </div>
+  </div>
+
 <%= yield %>
 
 </body>

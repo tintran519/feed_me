@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'users/:user_id/bounties/index' => 'bounties#index', as: :bounties
+  get 'users/:user_id/bounties' => 'bounties#index', as: :bounties
 
   post 'bounties/update'
 

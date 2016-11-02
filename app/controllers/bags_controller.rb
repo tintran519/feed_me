@@ -60,6 +60,7 @@ def index
         :name,
         :comments,
         :estimated_price,
+        :bag_status,
         :hunter_id)
     end
 end
