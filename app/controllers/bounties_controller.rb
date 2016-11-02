@@ -4,9 +4,4 @@ class BountiesController < ApplicationController
     @bags = Bag.all
     # @bag = Bag.find(params[:id])
   end
-
-  # def update
-  #   @bags = Bag.all
-  #   bag.hunter_name = @current_user.name
-  # end
 end

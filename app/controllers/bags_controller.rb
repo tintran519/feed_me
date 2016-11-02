@@ -6,6 +6,13 @@ def index
 
   def show
     @bag = Bag.find(params[:id])
+    if @bag.hunter_id.nil?
+      @bag.bag_status = 'Awaiting hunter...'
+    elsif @bag.bag_status != 'Completed!'
+      @bag.bag_status = 'In pursuit!'
+    end
+    @bag.save
+
     @user = @bag.user
   end
 
@@ -17,6 +24,7 @@ def index
   def create
     @user = User.find(params[:user_id])
     @bag = @user.bags.new(bag_params)
+    @bag.bag_status = 'Awaiting hunter...'
     if @bag.save
       redirect_to user_bags_path(@user)
     else

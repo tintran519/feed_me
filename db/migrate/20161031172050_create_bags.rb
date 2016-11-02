@@ -4,7 +4,7 @@ class CreateBags < ActiveRecord::Migration
       t.string :name
       t.string :comments
       t.float :estimated_price
-      t.string :bag_status
+      t.string :bag_status, default: 'Awaiting Hunter...'
       t.references :user, index: true, foreign_key: true
       t.integer :hunter_id
 

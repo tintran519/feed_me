@@ -3,17 +3,8 @@
 <p> <%= @bag.comments %></p>
 <br>
 <%= "Current status:#{@bag.bag_status}" %>
-<% if @bag.hunter_id.nil? %>
-  <%= @bag.bag_status = 'Awaiting hunter...' %>
   <br>
-  <%= 'Assigned Hunter: ' %>
-<% else %>
-  <% if @bag.bag_status != 'Completed!' %>
-  <%= @bag.bag_status = 'In pursuit!' %>
-  <% end %>
-  <br>
-  <%= "Assigned Hunter: #{@bag.hunter.name}" %>
-<% end %>
+  Assigned Hunter: <%= @bag.hunter.name unless @bag.hunter_id.nil?  %>
 <br>
 <p> Estimated Price: <%= @bag.estimated_price %></p>
 <br>

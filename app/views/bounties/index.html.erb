@@ -12,8 +12,18 @@
 </div>
 <br>
 
-<h2>Bags in pursuit</h2>
+<h2>Pending Missions</h2>
 <% @user.each do |hunt| %>
-  <%= link_to "#{hunt.name}", user_bag_orders_path(hunt.user_id, hunt.id) %>
+  <% if hunt.bag_status != "Completed!" %>
+    <%= link_to "#{hunt.name}", user_bag_orders_path(hunt.user_id, hunt.id) %>
   <br>
+  <% end %>
+<% end %>
+
+<h2>Complete Missions</h2>
+<% @user.each do |hunt| %>
+  <% if hunt.bag_status = "Completed!" %>
+    <%= link_to "#{hunt.name}", user_bag_orders_path(hunt.user_id, hunt.id) %>
+  <br>
+  <% end %>
 <% end %>

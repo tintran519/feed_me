@@ -1,4 +1,7 @@
 <h1><%= @bag.name %></h1>
+
+<%= "Current Status: #{@bag.bag_status}" %>
+<br>
 <% if current_user.id != @bag.user_id %>
   <% @orders.each do |order| %>
   <%= "#{order.food.ingredient}" %>
@@ -8,6 +11,7 @@
     <% if @bag.hunter_id == nil %>
       <%= form_tag "/users/#{@user.id}/bags/#{@bag.id}", method: :patch do %>
       <%= hidden_field_tag 'bag[hunter_id]', current_user.id %>
+      <%= hidden_field_tag 'bag[bag_status]', 'In pursuit!' %>
       <%= submit_tag 'Accept Mission!' %>
     <% end %>
   <% end %>
