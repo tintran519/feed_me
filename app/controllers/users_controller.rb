@@ -29,7 +29,11 @@ end
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      redirect_to user_path(@user)
+        if @user.is_hunter
+          redirect_to bounties_path(@user)
+        else
+          redirect_to user_path(@user)
+        end
     else
       render 'edit'
     end

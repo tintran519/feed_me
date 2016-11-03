@@ -15,6 +15,7 @@
       <%= submit_tag 'Accept Mission!' %>
     <% end %>
   <% end %>
+  <%= link_to 'Back to Bounty Board', bounties_path(current_user) %>
 <% else %>
 
   <div>
@@ -23,8 +24,7 @@
         <br>
         <% end %>
 </div>
-<br>
-    <%= link_to "Add Food", new_user_bag_order_path(@user, @bag) %>
-<br>
-    <%= link_to "Back to All Bags", user_bags_path %>
+    <p><%= link_to "Add Food", new_user_bag_order_path(@user, @bag) %></p>
+    <p><%= link_to "Back to Bag", user_bag_path(@user, @bag) %></p>
+    <p><%= link_to "Back to All Bags", user_bags_path %></p>
   <% end %>

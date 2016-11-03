@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20161031191823) do
     t.string   "email"
     t.string   "password_digest"
     t.integer  "zipcode"
+    t.string   "avatar"
     t.boolean  "is_hunter",       default: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false

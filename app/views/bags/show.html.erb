@@ -1,12 +1,17 @@
 <h1><%= @bag.name %></h1>
 
+<div class="row" id='parentRow'>
+  <div class="col-sm-6 jumbotron" id="bagShow">
+    <img src="https://camo.githubusercontent.com/24e732b4382cce98e2cac255ad3d6f6cf31751a8/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f333831373737302f3830323136342f34323635363565652d656462392d313165322d393263322d3936353161633833623163352e706e67" width="305", height="270">
+    </div>
+  <div class="col-sm-6 jumbotron" id="bagShow">
 <p> <%= @bag.comments %></p>
 <br>
 <%= "Current status:#{@bag.bag_status}" %>
   <br>
   Assigned Hunter: <%= @bag.hunter.name unless @bag.hunter_id.nil?  %>
 <br>
-<p> Estimated Price: <%= @bag.estimated_price %></p>
+<p> Estimated Price: $<%= @bag.estimated_price %></p>
 <br>
 <%= link_to "Look inside Bag", user_bag_orders_path(@user, @bag) %>
 <br>
@@ -23,3 +28,4 @@
 
 <br>
 <%= link_to "Back to all Bags", user_bags_path(@user) %>
+</div>

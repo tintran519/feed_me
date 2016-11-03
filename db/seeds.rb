@@ -10,13 +10,20 @@ Bag.destroy_all
 Order.delete_all
 Food.delete_all
 
-100.times do
-  Food.create(ingredient: Faker::Food.ingredient)
+require 'set'
+
+s = Set.new []
+30.times do
+  s.add Faker::Food.ingredient
+end
+
+s.each do |n|
+  Food.create(ingredient:n)
 end
 
 10.times do
   User.create(name: Faker::Name.name, email: Faker::Internet.email, zipcode: Faker::Address.zip_code, password: 'asdf', password_confirmation: 'asdf',
-    is_hunter: Faker::Boolean.boolean)
+    is_hunter: Faker::Boolean.boolean, avatar: Faker::Avatar.image)
 end
 
 User.all.each do |user|
@@ -24,7 +31,7 @@ User.all.each do |user|
     random = Faker::Number.between(1,3)
     random.times do
       user.bags.create(
-        name: Faker::Pokemon.name, estimated_price: Faker::Number.decimal(2),
+        name: Faker::Team.creature, estimated_price: Faker::Number.decimal(2),
         comments: Faker::SlackEmoji.food_and_drink)
     end
   end
@@ -32,7 +39,7 @@ end
 
 Bag.all.each do |bag|
   Faker::Number.between(1,11).times do
-    random = Faker::Number.between(1,100)
+    random = Faker::Number.between(1,10)
     bag.orders.create(
       food_id:random, quantity:Faker::Number.between(1,10))
   end

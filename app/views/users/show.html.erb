@@ -1,14 +1,15 @@
 <header>
-  <img src= <%= Faker::Avatar.image %> class="img-circle" alt="avatar" height="300" width="300" id="avatar">
+  <img src= <%= current_user.avatar %> class="img-circle" alt="avatar" height="300" width="300" id="avatar">
 </header>
 <br>
   <div class="row">
     <div class="col-sm-6 jumbotron" id="bagShow">
       <p>My Bags</p>
-      <%= link_to image_tag("https://camo.githubusercontent.com/24e732b4382cce98e2cac255ad3d6f6cf31751a8/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f333831373737302f3830323136342f34323635363565652d656462392d313165322d393263322d3936353161633833623163352e706e67", width:305, height:250), user_bags_path(@user) %>
+      <%= link_to image_tag("https://camo.githubusercontent.com/24e732b4382cce98e2cac255ad3d6f6cf31751a8/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f333831373737302f3830323136342f34323635363565652d656462392d313165322d393263322d3936353161633833623163352e706e67", width:305, height:240), user_bags_path(@user) %>
     </div>
     <div class="col-sm-6 jumbotron" id="editProfile">
       <p>Edit Profile</p>
-      <%= link_to image_tag("http://www.free-icons-download.net/images/profile-icon-63199.png", width: 296, height: 250), edit_user_path(@user) %>
+      <%= link_to image_tag("https://d30y9cdsu7xlg0.cloudfront.net/png/20344-200.png", width: 240, height: 240), edit_user_path(@user) %>
     </div>
   </div>
+<!-- http://www.free-icons-download.net/images/profile-icon-63199.png -->
