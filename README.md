@@ -1,4 +1,4 @@
-# Grocery shopping for the lazy
+Grocery shopping for the lazy
 ===============================
 ## Description
 Ever ran out of ingredients, but lack the time and energy to make a quick
