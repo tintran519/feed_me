@@ -10,35 +10,44 @@
     <%= "#{order.food.ingredient}: #{order.quantity} #{order.uom}" %>
   <br>
   <% end %>
-
+  <br>
     <% if @bag.hunter_id == nil %>
       <%= form_tag "/users/#{@user.id}/bags/#{@bag.id}", method: :patch do %>
       <%= hidden_field_tag 'bag[hunter_id]', current_user.id %>
       <%= hidden_field_tag 'bag[bag_status]', 'In pursuit!' %>
-      <%= submit_tag 'Accept Mission!' %>
+      <%= submit_tag 'Accept Mission!', class: "btn btn-default" %>
     <% end %>
   <% end %>
-  <%= link_to 'Back to Bounty Board', bounties_path(current_user) %>
+  </div>
+  </div>
+
+  <br>
+  <div class="container">
+  <div class="row">
+  <%= link_to 'Back to Bounty Board', bounties_path(current_user), class: 'circle' %>
+  </div>
+  </div>
 <% else %>
 
-  <div>
+  <div class="container">
+  <div class="row">
     <% @orders.each do |order| %>
         <%= link_to "#{order.food.ingredient}: #{order.quantity} #{order.uom}", user_bag_order_path(@user, @bag, order)%>
         <br>
         <% end %>
     </div>
-  </div>
+</div>
 </div>
 <br>
 <br>
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-4">
       <% if @bag.bag_status == 'Awaiting hunter...' %>
+    <div class="col-sm-4">
         <p><%= link_to "Add a Food", new_user_bag_order_path(@user, @bag), class: "circle" %></p>
-      <% end %>
       </div>
+      <% end %>
     <div class="col-sm-4">
       <p><%= link_to "Back to Bag", user_bag_path(@user, @bag), class: "circle" %></p>
       </div>
@@ -46,5 +55,5 @@
       <p><%= link_to "Back to All Bags", user_bags_path, class: "circle" %></p>
       </div>
   </div>
-  <% end %>
   </div>
+  <% end %>

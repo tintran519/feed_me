@@ -26,10 +26,12 @@ potential.
     * Refining the overall layout and structure of each page view to model modern apps
     * The "Faker" avatar was used for the beta version of the app as a placeholder.  
       A future component would allow users to upload their own images.
-    * Incorporting additional features to the app:
-         -A points and rewards system where "Hunters" earn app coins for each completed assignment. These can then be exchanged for rewards and further increase the 
-         "Hunter's" ranked tier.
-    *
+    * Incorporting additional features to the app such as a points and rewards system where "Hunters" earn app coins for each completed assignment. These can then be exchanged for rewards and further increase the "Hunter's" ranked tier.
+    * Maintaining consistency in layout designs
+    * Providing more concise, DRY codes
+    * Debugging issues that have not been discovered
+    * Adding a "How it works" section on the welcome page
+
 
 
 
