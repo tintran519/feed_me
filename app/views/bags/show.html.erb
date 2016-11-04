@@ -1,31 +1,44 @@
 <h1><%= @bag.name %></h1>
-
+<div class="container">
 <div class="row" id='parentRow'>
-  <div class="col-sm-6 jumbotron" id="bagShow">
-    <img src="https://camo.githubusercontent.com/24e732b4382cce98e2cac255ad3d6f6cf31751a8/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f333831373737302f3830323136342f34323635363565652d656462392d313165322d393263322d3936353161633833623163352e706e67" width="305", height="270">
+  <div class="col-sm-6 jumbotron" id="bagPic">
+    <img src="http://image.flaticon.com/icons/svg/214/214268.svg" width="305", height="270">
     </div>
-  <div class="col-sm-6 jumbotron" id="bagShow">
-<p> <%= @bag.comments %></p>
+  <div class="col-sm-6 jumbotron" id="bagShowDetail">
+<p>Comments:</p>
+<p><%= @bag.comments %></p>
 <br>
-<%= "Current status:#{@bag.bag_status}" %>
-  <br>
-  Assigned Hunter: <%= @bag.hunter.name unless @bag.hunter_id.nil?  %>
+<p>Current Status:</p>
+<p><%= @bag.bag_status %></p>
 <br>
-<p> Estimated Price: $<%= @bag.estimated_price %></p>
-<br>
-<%= link_to "Look inside Bag", user_bag_orders_path(@user, @bag) %>
-<br>
-<%= link_to "Edit Bag information", edit_user_bag_path(@user, @bag) %>
-<br>
-<%= link_to "Delete Bag", user_bag_path(@user, @bag), method: :delete, data: { confirm: "Are you sure you want to delete #{@bag.name}?"} %>
+  <p>Assigned Hunter:</p>
+  <p><%= @bag.hunter.name unless @bag.hunter_id.nil?  %></p>
+<p> Estimated Price: </p>
+<p><%= "$#{@bag.estimated_price}" %></p>
 <br>
     <% if @bag.bag_status == 'In pursuit!' %>
       <%= form_tag "/users/#{@user.id}/bags/#{@bag.id}", method: :patch do %>
         <%= hidden_field_tag 'bag[bag_status]', 'Completed!' %>
-        <%= submit_tag 'Mark as complete!' %>
+        <%= submit_tag 'Mark as complete!', class: "btn btn-default" %>
       <% end %>
     <% end %>
+</div>
+</div>
+</div>
 
-<br>
-<%= link_to "Back to all Bags", user_bags_path(@user) %>
+<div class="container" id="circleContain">
+  <div class="row" id="circleRow">
+    <div class="col-sm-3">
+    <%= link_to "Look inside Bag", user_bag_orders_path(@user, @bag), class: "circle" %>
+</div>
+  <div class="col-sm-3">
+<%= link_to "Edit Bag information", edit_user_bag_path(@user, @bag), class: "circle" %>
+  </div>
+  <div class="col-sm-3">
+<%= link_to "Delete this Bag", user_bag_path(@user, @bag), method: :delete, data: { confirm: "Are you sure you want to delete #{@bag.name}?"}, class: "circle" %>
+</div>
+  <div class="col-sm-3">
+<%= link_to "Back to all Bags", user_bags_path(@user), class: "circle" %>
+</div>
+</div>
 </div>

@@ -1,8 +1,9 @@
-<h1>Sign Up</h1>
+<div class="container" id="signUp">
+<h2>Sign Up</h2>
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div class="error_messages">
-      <h2>Form is invalid</h2>
+      <h3>Form is invalid</h3>
       <ul>
         <% for message in @user.errors.full_messages %>
           <li><%= message %></li>
@@ -10,29 +11,30 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :Name %>
+  <div class="form-group">
+    <%= f.label :Name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :Email %>
+  <div class="form-group">
+    <%= f.label :Email %><br>
     <%= f.text_field :email %>
   </div>
-  <div class="field">
-    <%= f.label :Password %>
+  <div class="form-group">
+    <%= f.label :Password %><br>
     <%= f.password_field :password %>
   </div>
-  <div class="field">
-    <%= f.label :Password_confirmation %>
+  <div class="form-group">
+    <%= f.label :Password_confirmation %><br>
     <%= f.password_field :password_confirmation %>
   </div>
-  <div class="field">
-    <%= f.label :Zipcode %>
+  <div class="form-group">
+    <%= f.label :Zipcode %><br>
     <%= f.text_field :zipcode %>
   </div>
-    <div class="field">
+    <div class="form-group">
     <%= f.label "Be a Hunter!" %>
     <%= f.check_box :is_hunter %>
   </div>
-  <div class="actions"><%= f.submit %></div>
+  <div class="actions"><%= f.submit "Register!", class:"btn btn-default" %></div>
 <% end %>
+</div>

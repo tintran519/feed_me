@@ -1,3 +1,51 @@
 // Place all the styles related to the Orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#orderContents {
+  background-color: rgba(86,9,8,1);
+  border:solid;
+  width: 50%;
+  border-radius: 5%;
+  height: 300px;
+  margin: auto;
+  max-height: 300px;
+  overflow-y: scroll;
+  font-size: 15pt;
+}
+
+.foodCircle, .circle {
+  font-size: 13pt;
+  background-color: rgba(86,9,8,1);
+  width: 125px;
+  height: 125px;
+  border-radius: 80%;
+  margin: auto;
+  display: flex;
+  border: solid;
+  align-items: center;
+}
+
+#foodShow {
+  background-color: rgba(86,9,8,1);
+  border:solid;
+  width: 50%;
+  border-radius: 5%;
+  height: 280px;
+  margin: auto;
+  max-height: 300px;
+  overflow-y: scroll;
+  font-size: 15pt;
+}
+
+#newFood {
+  background-color: rgba(86,9,8,1);
+  border:solid;
+  width: 50%;
+  border-radius: 5%;
+  height: 280px;
+  margin: auto;
+  max-height: 300px;
+  overflow-y: scroll;
+  font-size: 15pt;
+}

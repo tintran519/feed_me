@@ -1,9 +1,19 @@
+<div class="container" id="foodShow">
+<div class="row">
 <h1><%= @order.food.ingredient %></h1>
 
 <p>UOM = <%= @order.uom %></p>
 <p>Quantity = <%= @order.quantity %></p>
+</div>
+</div>
 <br>
-<%= link_to "Back to list of foods", user_bag_orders_path %>
-<br>
-<%= link_to "Remove food", "/users/#{@user.id}/bags/#{@bag.id}/orders/#{@order.id}", method: :delete, data: { confirm: "Are you sure you want to delete #{@order.uom}?"} %>
+
+<div class="row">
+<div class="col-sm-6">
+<%= link_to "Back to list of foods", user_bag_orders_path, class: "foodCircle" %>
+</div>
+<div class="col-sm-6">
+<%= link_to "Remove this food", "/users/#{@user.id}/bags/#{@bag.id}/orders/#{@order.id}", method: :delete, data: { confirm: "Are you sure you want to delete #{@order.uom}?" }, class: "foodCircle" %>
+</div>
+</div>
 

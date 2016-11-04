@@ -2,11 +2,105 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#bagShow {
+#bagPic {
+  border: solid;
   background-color: rgba(86,9,8,1);
+  height: 372px;
+  display: flex;
+  justify-content: center;
+}
+
+#bagShowDetail {
+  height: 372px;
+  max-height: 372px;
+  overflow-y: scroll;
+  background-color: rgba(86,9,8,1);
+  border: solid;
 }
 
 #parentRow {
-  height: 393px;
-  background-color: rgba(86,9,8,1);
+  height: 372px;
 }
+
+#bagIndex {
+  background-color: rgba(86,9,8,1);
+  border: solid;
+  border-radius: 5%;
+  height: 435px;
+  max-height: 450px;
+  overflow-y: scroll;
+}
+
+.bagIndexCircle {
+  background-color: rgba(86,9,8,1);
+  width: 125px;
+  height: 125px;
+  border-radius: 80%;
+  margin: auto;
+  display: flex;
+  border: solid;
+  align-items: center;
+  font-size: 17pt;
+}
+
+.bagList {
+  list-style-image: url("https://cdn0.iconfinder.com/data/icons/shopping-solid-2/48/99-48.png");
+  text-align: left;
+  font-size: 20px;
+  margin-left: 5%;
+}
+
+#newBag {
+  background-color: rgba(86,9,8,1);
+  border:solid;
+  width: 55%;
+  border-radius: 5%;
+  height: 380px;
+  max-height: 400px;
+  overflow-y: scroll;
+  font-size: 15pt;
+}
+
+#createBag {
+  background-color: rgba(86,9,8,1);
+  width: 125px;
+  height: 125px;
+  border-radius: 80%;
+  margin: auto;
+  display: flex;
+  border: solid;
+  align-items: center;
+  font-size: 17pt;
+}
+
+#editBag {
+  background-color: rgba(86,9,8,1);
+  border:solid;
+  width: 55%;
+  border-radius: 5%;
+  height: 380px;
+  max-height: 400px;
+  overflow-y: scroll;
+  font-size: 13pt;
+}
+
+#editBack {
+  background-color: rgba(86,9,8,1);
+  width: 125px;
+  height: 125px;
+  border-radius: 80%;
+  margin: auto;
+  display: flex;
+  border: solid;
+  align-items: center;
+  font-size: 15pt;
+}
+
+// #circleContain {
+//   display: flex;
+//   justify-content: space-around;
+// }
+
+// #circleRow {
+//   display: flex;
+// }

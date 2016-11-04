@@ -1,24 +1,31 @@
+<div class="container" id="editBag">
 <h1><%= @bag.name %></h1>
 
 <%= form_for @bag, url: user_bag_path(@bag.user_id, @bag), method: :patch do |f| %>
 
   <div>
-    <%= f.label :name %>
+    <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
 
 
   <div>
-    <%= f.label :estimated_price %>
+    <%= f.label :estimated_price %><br>
     <%= f.number_field :estimated_price %>
   </div>
 
   <div>
-    <%= f.label :comments %>
+    <%= f.label :comments %><br>
     <%= f.text_area :comments %>
   </div>
-
-  <%= f.submit "Submit revisions" %>
+  <br>
+  <%= f.submit "Submit revisions", class:"btn btn-default" %>
+  <br>
 <% end %>
+</div>
+<br>
+<br>
 
+<div class="row" id="editBack">
 <%= link_to "Back to All Bags", user_bags_path %>
+</div>

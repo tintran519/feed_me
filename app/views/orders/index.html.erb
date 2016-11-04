@@ -1,10 +1,13 @@
-<h1><%= @bag.name %></h1>
+<div class="container">
+  <div class="row" id="orderContents">
+  <h1><%= @bag.name %></h1>
 
-<%= "Current Status: #{@bag.bag_status}" %>
-<br>
-<% if current_user.id != @bag.user_id %>
-  <% @orders.each do |order| %>
-  <%= "#{order.food.ingredient}" %>
+  <%= "Current Status: #{@bag.bag_status}" %>
+  <br>
+  <br>
+  <% if current_user.id != @bag.user_id %>
+    <% @orders.each do |order| %>
+    <%= "#{order.food.ingredient}: #{order.quantity} #{order.uom}" %>
   <br>
   <% end %>
 
@@ -20,11 +23,28 @@
 
   <div>
     <% @orders.each do |order| %>
-        <%= link_to "#{order.food.ingredient}", user_bag_order_path(@user, @bag, order)%>
+        <%= link_to "#{order.food.ingredient}: #{order.quantity} #{order.uom}", user_bag_order_path(@user, @bag, order)%>
         <br>
         <% end %>
+    </div>
+  </div>
 </div>
-    <p><%= link_to "Add Food", new_user_bag_order_path(@user, @bag) %></p>
-    <p><%= link_to "Back to Bag", user_bag_path(@user, @bag) %></p>
-    <p><%= link_to "Back to All Bags", user_bags_path %></p>
+<br>
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <% if @bag.bag_status == 'Awaiting hunter...' %>
+        <p><%= link_to "Add a Food", new_user_bag_order_path(@user, @bag), class: "circle" %></p>
+      <% end %>
+      </div>
+    <div class="col-sm-4">
+      <p><%= link_to "Back to Bag", user_bag_path(@user, @bag), class: "circle" %></p>
+      </div>
+    <div class="col-sm-4">
+      <p><%= link_to "Back to All Bags", user_bags_path, class: "circle" %></p>
+      </div>
+  </div>
   <% end %>
+  </div>

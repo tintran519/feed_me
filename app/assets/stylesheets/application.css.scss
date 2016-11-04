@@ -50,32 +50,37 @@
   text-align: center;
 }
 
-#homeLink {
+#homeLink, .btn {
   background-color: #033c29;
+  color: #ff9800;
+  border: 1px solid
 }
 
 #login {
   background-color: rgba(86,9,8,1);
-}
-
-#editProfile {
-  background-color: rgba(255, 240, 245, 0.86);
-}
-
-#avatar {
-  background-color: rgba(245, 245, 220, 0.87);
-}
-
-.bagList {
-  list-style-image: url("https://cdn0.iconfinder.com/data/icons/shopping-solid-2/48/99-48.png");
-  text-align: left;
-  font-size: 25px;
-}
-
-#bagIndex {
-  background-color: rgba(86,9,8,1);
+  border:solid;
+  width: 50%;
+  border-radius: 5%;
+  height: 300px;
 }
 
 #username {
   text-align: right;
+}
+
+#signUp {
+  background-color: rgba(86,9,8,1);
+  border:solid;
+  width: 50%;
+  border-radius: 5%;
+  height: 500px;
+}
+
+#editUser {
+  background-color: rgba(86,9,8,1);
+  border:solid;
+  width: 50%;
+  border-radius: 5%;
+  height: 435px;
+  font-size: 13pt;
 }
