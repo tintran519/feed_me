@@ -6,7 +6,7 @@
       <p>Food</p> <%= f.collection_select :food_id, Food.order(:ingredient),:id,:ingredient, include_blank: true %>
 
      <div>
-      <%= f.label :UOM %><br>
+      <%= f.label :'Unit of Measurement' %><br>
       <%= f.text_field :uom %>
   </div>
 

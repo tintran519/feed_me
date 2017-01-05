@@ -45,11 +45,11 @@
   <div class="row">
       <% if @bag.bag_status == 'Awaiting hunter...' %>
     <div class="col-sm-4">
-        <p><%= link_to "Add a Food", new_user_bag_order_path(@user, @bag), class: "circle" %></p>
+        <p><%= link_to 'Add some Food', new_user_bag_order_path(@user, @bag), class: "circle" %></p>
       </div>
       <% end %>
     <div class="col-sm-4">
-      <p><%= link_to "Back to Bag", user_bag_path(@user, @bag), class: "circle" %></p>
+      <p><%= link_to "Back to the Bag", user_bag_path(@user, @bag), class: "circle" %></p>
       </div>
     <div class="col-sm-4">
       <p><%= link_to "Back to All Bags", user_bags_path, class: "circle" %></p>
