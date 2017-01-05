@@ -37,13 +37,23 @@
 }
 
 #box-wrapper {
-  background-image: url(http://www.ezyhealth.com/magazine/wp-content/uploads/2015/03/iStock_000046272610_Large.jpg);
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 700px;
-  margin: auto;
+  background-color: rgba(0,0,0,0);
+//   background-image: url(http://www.ezyhealth.com/magazine/wp-content/uploads/2015/03/iStock_000046272610_Large.jpg);
+//   background-size: cover;
+//   background-attachment: fixed;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   min-height: 700px;
+//   margin: auto;
+}
+
+body {
+   background-image: url(http://www.ezyhealth.com/magazine/wp-content/uploads/2015/03/iStock_000046272610_Large.jpg);
+   background-size: cover;
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   margin: auto;
 }
 
 #mainContent {
